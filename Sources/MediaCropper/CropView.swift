@@ -431,7 +431,7 @@ public class CropView: UIView {
     ///---------------------
     private func matchTopToBottom() {
         print("DISPLAY FOREGROUND MATCHING \(disableForegroundMatching)")
-        if (self.disableForegroundMatching) {return}
+        //if (self.disableForegroundMatching) {return}
         
         self.topImageView.frame = self.bottomContainerView.superview!.convert(
             self.bottomContainerView.frame, to: self.topContainerView)

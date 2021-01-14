@@ -78,7 +78,7 @@ public class CropEditController: UIViewController {
     }
     
     
-    init(with cropRatio: CropRatio, image: UIImage) {
+    public init(with cropRatio: CropRatio, image: UIImage) {
         super.init(nibName: nil, bundle: nil)
         self.image = image
         self.cropRatio = cropRatio
@@ -96,7 +96,7 @@ public class CropEditController: UIViewController {
     }()
     
     
-    init(image: UIImage) {
+    public init(image: UIImage) {
         super.init(nibName: nil, bundle: nil)
         self.image = image
     }

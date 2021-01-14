@@ -34,6 +34,7 @@ public class CropEditController: UIViewController {
         cv.delegate = self
         cv.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view.addSubview(cv)
+        if self.cropRatio != nil { cv.aspectRatio = cropRatio.size }
         return cv
     }()
     

@@ -820,6 +820,7 @@ extension CropView: UIScrollViewDelegate, UIGestureRecognizerDelegate {
     
     
     public func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        print("SCROLL VIEW DID ZOOM")
         if scrollView.isTracking {
             self.cropBoxLastEditedZoomScale = scrollView.zoomScale
             self.cropBoxLastEditedMinZoomScale = scrollView.minimumZoomScale

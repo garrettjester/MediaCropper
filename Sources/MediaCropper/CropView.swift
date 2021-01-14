@@ -75,8 +75,7 @@ public class CropView: UIView {
     private var cropOriginFrame: CGRect?
     
     // Resets the view when the user stops interaction.
-    private var resetTimer: Timer!
-    
+    private var resetTimer: Timer?
     // Indicates whether the user is actively modifying the crop settings.
     private var editing: Bool = false
     
@@ -377,7 +376,7 @@ public class CropView: UIView {
     }
     
     private func cancelResetTimer() {
-        self.resetTimer.invalidate()
+        self.resetTimer?.invalidate()
         self.resetTimer = nil
     }
     

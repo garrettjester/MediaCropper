@@ -120,6 +120,10 @@ public class CropEditController: UIViewController {
         }
     }
     
+    public override func viewDidAppear(_ animated: Bool) {
+        self.cropView.setBottomImageViewHidden(hidden: false, animated: animated)
+    }
+    
     
     public override func viewSafeAreaInsetsDidChange() {
         if #available(iOS 11.0, *) {

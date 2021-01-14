@@ -141,7 +141,6 @@ public class CropView: UIView {
     private func configure() {
         self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.backgroundColor = .white
-        self.aspectRatio = CropRatio.portrait.size
         self.restoreImageCropFrame = .zero
         
         self.scrollView = MediaScrollView(frame: self.bounds)
@@ -163,6 +162,7 @@ public class CropView: UIView {
         
         self.bottomImageView = UIImageView(image: self.image)
         self.bottomImageView.layer.minificationFilter = .trilinear
+        self.bottomImageView.isHidden = false
         
         self.bottomContainerView = UIView(frame: self.bottomImageView.frame)
         self.bottomContainerView.addSubview(self.bottomImageView)

@@ -145,6 +145,8 @@ public class CropView: UIView {
         self.aspectRatio = CropRatio.portrait.size
         self.restoreImageCropFrame = .zero
         
+        
+        self.scrollView = MediaScrollView(frame: self.bounds)
         self.scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.scrollView.alwaysBounceVertical = true
         self.scrollView.alwaysBounceHorizontal = true

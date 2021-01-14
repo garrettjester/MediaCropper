@@ -110,6 +110,7 @@ public class CropEditController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         print("VIEW WILL APPEAR")
         super.viewWillAppear(animated)
+        
         self.cropView.setBottomImageViewHidden(hidden: true, animated: false)
         if self.cropRatio != nil {
             setAspectRatioPreset(ratio: cropRatio, animated: false)
@@ -117,7 +118,7 @@ public class CropEditController: UIViewController {
     }
     
     public override func viewDidAppear(_ animated: Bool) {
-        print("VIEW WILL APPEAR")
+        print("VIEW DID APPEAR")
         super.viewDidAppear(animated)
         self.cropView.setBottomImageViewHidden(hidden: false, animated: animated)
     }

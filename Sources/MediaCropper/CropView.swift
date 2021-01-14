@@ -145,7 +145,6 @@ public class CropView: UIView {
         self.aspectRatio = CropRatio.portrait.size
         self.restoreImageCropFrame = .zero
         
-        
         self.scrollView = MediaScrollView(frame: self.bounds)
         self.scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.scrollView.alwaysBounceVertical = true
@@ -206,7 +205,7 @@ public class CropView: UIView {
     /// LAYOUT VIEWS
     ///--------------
     public func performInitialSetup() {
-        
+        print("PERFORMING INITIAL SETUP")
         if self.initialSetupPerformed { return }
         self.initialSetupPerformed = true
         layoutInitialImage()
@@ -225,7 +224,7 @@ public class CropView: UIView {
     /// LAYOUT INITIAL IMAGE
     ///---------------------
     private func layoutInitialImage() {
-        
+        print("LAYING OUT INITIAL IMAGE")
         let imageSize = self.image.size
         self.scrollView.contentSize = self.image.size
         let bounds = self.contentBounds
@@ -289,6 +288,7 @@ public class CropView: UIView {
     /// UPDATE CROP FRAME
     ///-------------------
     private func updateCropFrame(toMatch imageCropFrame: CGRect) {
+        print("UPDATING CROP FRAME")
         //Convert the image crop frame's size from image space to the screen space
         let minSize = self.scrollView.minimumZoomScale
         let scaledOffset = CGPoint(x: imageCropFrame.origin.x * minSize, y: imageCropFrame.origin.y * minSize)
@@ -326,6 +326,7 @@ public class CropView: UIView {
     
     
     func getImageCropFrame() -> CGRect {
+        print("GETTIN CROP FRAME")
         let imageSize = self.imageSize
         let contentSize = self.scrollView.contentSize
         let cropBoxFrame = self.cropBoxFrame

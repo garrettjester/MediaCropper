@@ -122,6 +122,9 @@ public class CropEditController: UIViewController {
     
     
     public override func viewSafeAreaInsetsDidChange() {
+        if #available(iOS 11.0, *) {
+            super.viewSafeAreaInsetsDidChange()
+        } 
         adjustCropViewInsets()
     }
     

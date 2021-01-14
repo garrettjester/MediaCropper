@@ -79,16 +79,12 @@ public class CropView: UIView {
     // Indicates whether the user is actively modifying the crop settings.
     private var editing: Bool = false
     
-    
     public var initialSetupPerformed = false
     
     // A storable crop frame used to restore crop settings between sessions.
     public var restoreImageCropFrame: CGRect!
     
     public var applyInitialCroppedImageFrame: Bool = false
-    
-    // When performing manual content layout, disable internal layout.
-    private var internalLayoutDisabled: Bool = false
     
     private var disableForegroundMatching: Bool = false
     
@@ -434,6 +430,7 @@ public class CropView: UIView {
     /// MATCH TOP TO BOTTOM
     ///---------------------
     private func matchTopToBottom() {
+        print("DISPLAY FOREGROUND MATCHING \(disableForegroundMatching)")
         if (self.disableForegroundMatching) {return}
         
         self.topImageView.frame = self.bottomContainerView.superview!.convert(
@@ -446,7 +443,8 @@ public class CropView: UIView {
     ///----------------------------
     // Recenters the crop content.
     public func centerCropContent(animated: Bool) {
-        if self.internalLayoutDisabled { return }
+        
+        print("centering crop content")
         
         let contentRect = self.contentBounds
         var cropFrame = self.cropBoxFrame

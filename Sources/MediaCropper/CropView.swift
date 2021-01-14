@@ -175,9 +175,9 @@ public class CropView: UIView {
         self.overlay.isUserInteractionEnabled = false
         self.addSubview(self.overlay)
         
-        if #available(iOS 10.0, *) {
-            self.blurEffect = UIBlurEffect(style: .regular)
-        }
+      
+        self.blurEffect = UIBlurEffect(style: .regular)
+        
         
         self.blurView = UIVisualEffectView(effect: blurEffect)
         self.blurView.frame = self.bounds

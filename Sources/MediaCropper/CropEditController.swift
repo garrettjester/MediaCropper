@@ -85,7 +85,6 @@ public class CropEditController: UIViewController {
         
         self.modalTransitionStyle = .coverVertical
         self.modalPresentationStyle = .fullScreen
-        self.automaticallyAdjustsScrollViewInsets = false
         
     }
     

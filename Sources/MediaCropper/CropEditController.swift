@@ -39,13 +39,7 @@ public class CropEditController: UIViewController {
     }()
     
     private var statusBarHidden: Bool {
-        if self.navigationController != nil {
-            return self.navigationController!.prefersStatusBarHidden
-        } else {
-            guard let hidden = self.presentingViewController?.prefersStatusBarHidden
-            else {return false}
-            return hidden
-        }
+        false
     }
     
     
@@ -102,6 +96,7 @@ public class CropEditController: UIViewController {
     }
     
     public override func viewDidLoad() {
+        print("VIEW DID LOAD")
         super.viewDidLoad()
         self.view.backgroundColor = .white
      
@@ -113,6 +108,7 @@ public class CropEditController: UIViewController {
     
     
     public override func viewWillAppear(_ animated: Bool) {
+        print("VIEW WILL APPEAR")
         super.viewWillAppear(animated)
         self.cropView.setBottomImageViewHidden(hidden: true, animated: false)
         if self.cropRatio != nil {
@@ -121,6 +117,8 @@ public class CropEditController: UIViewController {
     }
     
     public override func viewDidAppear(_ animated: Bool) {
+        print("VIEW WILL APPEAR")
+        super.viewDidAppear(animated)
         self.cropView.setBottomImageViewHidden(hidden: false, animated: animated)
     }
     

@@ -140,9 +140,9 @@ public class CropEditController: UIViewController {
         self.adjustCropViewInsets()
         self.cropView.centerCropContent(animated: false)
         
-        if !self.firstTime {
+        if self.firstTime {
             self.cropView.performInitialSetup()
-            self.firstTime = true
+            self.firstTime = false
         }
     
         //UIView.performWithoutAnimation {

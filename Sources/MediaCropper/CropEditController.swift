@@ -8,11 +8,8 @@
 
 import UIKit
 
-/*protocol CropEditControllerDelegate {
-    <#requirements#>
-}*/
 
-class CropEditController: UIViewController {
+public class CropEditController: UIViewController {
 
     // The image to be cropped.
     public var image: UIImage!
@@ -104,7 +101,7 @@ class CropEditController: UIViewController {
         self.image = image
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
      
@@ -115,7 +112,7 @@ class CropEditController: UIViewController {
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.cropView.setBottomImageViewHidden(hidden: true, animated: false)
         if self.cropRatio != nil {
@@ -124,7 +121,7 @@ class CropEditController: UIViewController {
     }
     
     
-    override func viewSafeAreaInsetsDidChange() {
+    public override func viewSafeAreaInsetsDidChange() {
         adjustCropViewInsets()
     }
     
@@ -134,7 +131,7 @@ class CropEditController: UIViewController {
         return
     }
     
-    override func viewDidLayoutSubviews() {
+    public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.cropView.frame = self.frameForCropView()
         self.adjustCropViewInsets()
@@ -177,19 +174,19 @@ class CropEditController: UIViewController {
 
 
 extension CropEditController: CropViewDelegate {
-    func resetEnabled() { print("RESET IS ENABLED") }
-    func resetDisabled() { print("RESET IS DISABLED") }
+    public func resetEnabled() { print("RESET IS ENABLED") }
+    public func resetDisabled() { print("RESET IS DISABLED") }
 }
 
 
 
-enum CropRatio {
+public enum CropRatio {
     case portrait
     case square
     case landscape
 }
 
-extension CropRatio {
+public extension CropRatio {
     var size: CGSize {
         switch self {
         case .portrait:

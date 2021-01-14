@@ -107,7 +107,7 @@ class CropEditController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        self.view.addSubview(imageView)
+     
         
         self.cropView.frame = frameForCropView()
         imageView.image = self.image

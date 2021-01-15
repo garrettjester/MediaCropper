@@ -298,7 +298,6 @@ public class CropView: UIView {
             height: floor(scaledCropSize.height * scale))
         
         self.cropBoxFrame = cropBoxFrame;
-        
         frame.origin.x = ceil((scaledOffset.x * scale) - self.scrollView.contentInset.left);
         frame.origin.y = ceil((scaledOffset.y * scale) - self.scrollView.contentInset.top);
         self.scrollView.contentOffset = frame.origin
@@ -502,11 +501,10 @@ public class CropView: UIView {
     /// Sets a new aspect ratio for the CropView and
     /// optionally animates the change.
     public func setAspectRatio(ratio: CGSize, animated: Bool = false) {
-        print("CALLING SET ASPECT RATIO")
+    
         self.aspectRatio = ratio
         if !self.initialSetupPerformed { return }
-        print("RATIO \(ratio)")
-        print("INITIAL SET UP WAS PERFORMED")
+    
         if ratio.width < CGFloat.ulpOfOne && ratio.height < CGFloat.ulpOfOne {
             self.aspectRatio = CGSize(width: self.imageSize.width, height: self.imageSize.height)
         }
@@ -580,7 +578,7 @@ public class CropView: UIView {
                 
                 // Pin the x position to the middle.
                 offset.x += (delta * 0.5)
-                
+                print("CROP BOX FRAME MID Y \(cropBoxFrame.midY)")
                 // Pin the height to the bounds height.
                 cropBoxFrame.size.height = bounds.height
                 zoomOut = true

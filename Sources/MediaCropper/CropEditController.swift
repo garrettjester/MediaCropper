@@ -109,6 +109,7 @@ public class CropEditController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.cropView.setBottomImageViewHidden(hidden: true, animated: false)
+        
         if self.cropRatio != nil {
             setAspectRatioPreset(ratio: cropRatio, animated: false)
         }

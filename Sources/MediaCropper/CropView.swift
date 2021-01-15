@@ -184,7 +184,6 @@ public class CropView: UIView {
     ///--------------
     public func performInitialSetup() {
         if self.initialSetupPerformed { return }
-        print("INITIAL SET UP PERFORMED")
         self.initialSetupPerformed = true
         layoutInitialImage()
         
@@ -195,6 +194,8 @@ public class CropView: UIView {
         }
         
         self.checkCanReset()
+        guard let aspectRatio = aspectRatio else {return}
+        self.setAspectRatio(ratio: aspectRatio)
     }
     
     

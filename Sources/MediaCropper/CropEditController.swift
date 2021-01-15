@@ -99,6 +99,7 @@ public class CropEditController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .background
         self.cropView.frame = frameForCropView()
+        self.addToolbar()
         imageView.image = self.image
         self.title = "Edit"
         // Do any additional setup after loading the view.
@@ -168,6 +169,20 @@ public class CropEditController: UIViewController {
         // TO-DO: Make adjustments for toolbar here.
         return frame
     }
+    
+    
+    
+    private func addToolbar() {
+        let separator = UIView()
+        separator.backgroundColor = .gray
+        view.addSubview(separator)
+        separator.topAnchor.constraint(equalTo: cropView.bottomAnchor).isActive = true
+        separator.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        separator.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        separator.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+        return
+    }
+    
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }

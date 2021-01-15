@@ -425,7 +425,7 @@ public class CropView: UIView {
     /// MATCH TOP TO BOTTOM
     ///---------------------
     private func matchTopToBottom() {
-        //if (self.disableForegroundMatching) {return}
+        if self.disableForegroundMatching {return}
         
         self.topImageView.frame = self.bottomContainerView.superview!.convert(
             self.bottomContainerView.frame, to: self.topContainerView)
@@ -437,8 +437,6 @@ public class CropView: UIView {
     ///----------------------------
     // Recenters the crop content.
     public func centerCropContent(animated: Bool) {
-        
-        print("centering crop content")
         
         let contentRect = self.contentBounds
         var cropFrame = self.cropBoxFrame
@@ -475,6 +473,7 @@ public class CropView: UIView {
                 offsetPoint.x = min(-cropFrame.maxX + self.scrollView.contentSize.width, offsetPoint.x)
                 offsetPoint.y = min(-cropFrame.maxY + self.scrollView.contentSize.height, offsetPoint.y)
                 self.scrollView.contentOffset = offsetPoint
+                self.disableForegroundMatching = false
                 return
             }
             

@@ -193,7 +193,6 @@ public class CropView: UIView {
             self.restoreImageCropFrame = CGRect.zero
         }
         
-        self.checkCanReset()
         guard let aspectRatio = aspectRatio else {return}
         self.setAspectRatio(ratio: aspectRatio)
     }
@@ -259,7 +258,7 @@ public class CropView: UIView {
         self.originalCropBoxSize = self.cropBoxFrame.size
         self.originalContentOffset = self.scrollView.contentOffset
         
-        self.checkCanReset()
+        
         self.matchTopToBottom()
         
     }
@@ -517,7 +516,7 @@ public class CropView: UIView {
         } else {
             isPortrait = ratio.width < ratio.height
         }
-        print("IS PORTRAIT \(isPortrait)")
+       
         var zoomOut = false
         
         if isPortrait {
@@ -561,6 +560,7 @@ public class CropView: UIView {
             offset.y += (delta * 0.5)
             
             if delta < CGFloat.ulpOfOne {
+                print("SETTING ORIGIN VIA CONTENT BOUNDS PROPERTY")
                 cropBoxFrame.origin.y = self.contentBounds.origin.y
             }
             
@@ -581,9 +581,9 @@ public class CropView: UIView {
                 
                 zoomOut = true
             }
-            
-            cropBoxFrame.origin.y = self.frame.midY - (cropBoxFrame.height * 0.5)
         }
+        
+        cropBoxFrame.origin.y = self.frame.midY - (cropBoxFrame.height * 0.5)
         
         var dummyCropBox: UIView?
         if dummyCropBox == nil {
@@ -594,8 +594,11 @@ public class CropView: UIView {
         
         dummyCropBox?.frame = cropBoxFrame
         
+        
+        
+        
+        
         self.cropBoxLastEditedSize = cropBoxFrame.size
-        print("CROP BOX FRAME MID Y \(cropBoxFrame.midY)")
         // Translate coordinate and size changes in block.
         let translationBlock = { [unowned self] in
             self.scrollView.contentOffset = offset
@@ -623,21 +626,6 @@ public class CropView: UIView {
             completion: nil)
     }
     
-    
-    // Given changes in the view's components, determine if there's a resettable state.
-    private func checkCanReset() {
-        
-        var canReset = false
-        
-        if self.scrollView.zoomScale > self.scrollView.minimumZoomScale + CGFloat.ulpOfOne {
-            canReset = true
-            
-        } else if floor(self.scrollView.contentOffset.x) != floor(self.originalContentOffset.x) ||
-                    floor(self.scrollView.contentOffset.y) != floor(self.originalContentOffset.y) {
-            canReset = true
-        }
-        self.canBeReset = canReset
-    }
     
 
     ///--------------------
@@ -803,12 +791,12 @@ extension CropView: UIScrollViewDelegate, UIGestureRecognizerDelegate {
     
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.startEditing()
-        self.canBeReset = true
+  
     }
     
     public func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
         self.startEditing()
-        self.canBeReset = true
+   
     }
     
     
@@ -822,13 +810,13 @@ extension CropView: UIScrollViewDelegate, UIGestureRecognizerDelegate {
     
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.startResetTimer()
-        self.checkCanReset()
+  
     }
     
     
     public func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
         self.startResetTimer()
-        self.checkCanReset()
+   
     }
     
     

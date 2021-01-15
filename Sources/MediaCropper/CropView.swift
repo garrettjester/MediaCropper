@@ -306,7 +306,6 @@ public class CropView: UIView {
     
     
     func getImageCropFrame() -> CGRect {
-        print("GETTIN CROP FRAME")
         let imageSize = self.imageSize
         let contentSize = self.scrollView.contentSize
         let cropBoxFrame = self.cropBoxFrame
@@ -390,7 +389,6 @@ public class CropView: UIView {
             toggleTranslucencyViewVisible(!editing)
             return
         }
-        
         let duration = editing ? 0.05 : 0.35
         let delay = editing ? 0 : 0.35
         
@@ -587,6 +585,15 @@ public class CropView: UIView {
             cropBoxFrame.origin.y = self.frame.midY - (cropBoxFrame.height * 0.5)
         }
         
+        var dummyCropBox: UIView?
+        if dummyCropBox == nil {
+            dummyCropBox = UIView()
+            dummyCropBox?.backgroundColor = .green
+            self.addSubview(dummyCropBox!)
+        }
+        
+        dummyCropBox?.frame = cropBoxFrame
+        
         self.cropBoxLastEditedSize = cropBoxFrame.size
         print("CROP BOX FRAME MID Y \(cropBoxFrame.midY)")
         // Translate coordinate and size changes in block.
@@ -603,6 +610,9 @@ public class CropView: UIView {
             translationBlock()
             return
         }
+        
+       
+        
         UIView.animate(
             withDuration: 0.5,
             delay: 0.0,

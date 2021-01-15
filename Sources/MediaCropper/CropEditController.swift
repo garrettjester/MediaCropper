@@ -97,8 +97,7 @@ public class CropEditController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
-        
+        self.view.backgroundColor = .background
         self.cropView.frame = frameForCropView()
         imageView.image = self.image
         self.navigationController?.isNavigationBarHidden = true

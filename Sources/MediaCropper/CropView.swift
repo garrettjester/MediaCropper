@@ -136,7 +136,7 @@ public class CropView: UIView {
     ///-----------------------
     private func configure() {
         self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        self.backgroundColor = self.traitCollection.userInterfaceStyle == .dark ? .black : .white
+        self.backgroundColor = .background
         self.restoreImageCropFrame = .zero
         self.scrollView = MediaScrollView(frame: self.bounds)
         self.scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -148,9 +148,7 @@ public class CropView: UIView {
         
         self.addSubview(scrollView)
         
-        if #available(iOS 11.0, *) {
-            self.scrollView.contentInsetAdjustmentBehavior = .never
-        }
+        if #available(iOS 11.0, *) { self.scrollView.contentInsetAdjustmentBehavior = .never}
         
         self.scrollView.touchesBegan = startEditing
         self.scrollView.touchesEnded = startResetTimer

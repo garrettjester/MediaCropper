@@ -138,7 +138,6 @@ public class CropView: UIView {
         self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.backgroundColor = self.traitCollection.userInterfaceStyle == .dark ? .black : .white
         self.restoreImageCropFrame = .zero
-        
         self.scrollView = MediaScrollView(frame: self.bounds)
         self.scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.scrollView.alwaysBounceVertical = true
@@ -282,7 +281,7 @@ public class CropView: UIView {
     /// UPDATE CROP FRAME
     ///-------------------
     private func updateCropFrame(toMatch imageCropFrame: CGRect) {
-        print("UPDATING CROP FRAME")
+     
         //Convert the image crop frame's size from image space to the screen space
         let minSize = self.scrollView.minimumZoomScale
         let scaledOffset = CGPoint(x: imageCropFrame.origin.x * minSize, y: imageCropFrame.origin.y * minSize)

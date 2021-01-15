@@ -96,16 +96,16 @@ public class CropEditController: UIViewController {
     }
     
     public override func viewDidLoad() {
-        print("VIEW DID LOAD")
         super.viewDidLoad()
         self.view.backgroundColor = .white
-     
+        
         
         self.cropView.frame = frameForCropView()
         imageView.image = self.image
+        self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
     }
-    
+
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -164,7 +164,7 @@ public class CropEditController: UIViewController {
         let bounds = view!.bounds
         var frame = CGRect.zero
         
-        frame.size.height = view!.frame.height - 85
+        frame.size.height = view!.frame.height - 150
         frame.size.width = view!.frame.width
         
         // TO-DO: Make adjustments for toolbar here.

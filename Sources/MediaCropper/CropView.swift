@@ -116,12 +116,6 @@ public class CropView: UIView {
     // A gray view (semi-transparent) overlaid on top of the background image.
     private var overlay: UIView!
     
-    // A blur view applied to the image when the user is not interacting with it.
-    private var blurView: UIVisualEffectView!
-    
-    private var blurEffect: UIBlurEffect!
-    
-    
     
     init(image: UIImage) {
         super.init(frame: CGRect.zero)
@@ -168,15 +162,6 @@ public class CropView: UIView {
         self.overlay.isUserInteractionEnabled = false
         self.addSubview(self.overlay)
         
-      
-        self.blurEffect = UIBlurEffect(style: .regular)
-        
-        
-        self.blurView = UIVisualEffectView(effect: blurEffect)
-        self.blurView.frame = self.bounds
-        self.blurView.isUserInteractionEnabled = false
-        self.blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.addSubview(self.blurView)
         
         self.topContainerView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
         self.topContainerView.clipsToBounds = true
@@ -417,7 +402,7 @@ public class CropView: UIView {
     /// TOGGLE TRANSLUCENCY
     ///--------------------
     private func toggleTranslucencyViewVisible(_ visible: Bool) {
-        self.blurView.alpha = visible ? 1.0 : 0.0
+        //self.blurView.alpha = visible ? 1.0 : 0.0
     }
     
     

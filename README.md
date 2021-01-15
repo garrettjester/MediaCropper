@@ -1,6 +1,6 @@
 # MediaCropper 🏞 🎬 ✂️
 
-A Swift package for cropping image and video assets.
+A Swift package for cropping image and video assets on WRLDS for iOS.
 
 ## Features
 - **Automatic Aspect Ratio Detection**  

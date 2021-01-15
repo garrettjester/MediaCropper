@@ -100,7 +100,6 @@ public class CropEditController: UIViewController {
         self.view.backgroundColor = .background
         self.cropView.frame = frameForCropView()
         imageView.image = self.image
-        self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
     }
 
@@ -159,7 +158,6 @@ public class CropEditController: UIViewController {
     private func frameForCropView() -> CGRect {
         
         let view = self.parent == nil ? self.view : self.parent!.view
-        let bounds = view!.bounds
         var frame = CGRect.zero
         
         frame.size.height = view!.frame.height * 0.6

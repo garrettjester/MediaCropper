@@ -197,7 +197,6 @@ public class CropView: UIView {
     /// LAYOUT VIEWS
     ///--------------
     public func performInitialSetup() {
-        print("PERFORMING INITIAL SETUP")
         if self.initialSetupPerformed { return }
         self.initialSetupPerformed = true
         layoutInitialImage()
@@ -426,7 +425,6 @@ public class CropView: UIView {
     /// MATCH TOP TO BOTTOM
     ///---------------------
     private func matchTopToBottom() {
-        print("DISPLAY FOREGROUND MATCHING \(disableForegroundMatching)")
         //if (self.disableForegroundMatching) {return}
         
         self.topImageView.frame = self.bottomContainerView.superview!.convert(

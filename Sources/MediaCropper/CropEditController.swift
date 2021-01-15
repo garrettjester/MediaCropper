@@ -100,6 +100,7 @@ public class CropEditController: UIViewController {
         self.view.backgroundColor = .background
         self.cropView.frame = frameForCropView()
         imageView.image = self.image
+        self.title = "Edit"
         // Do any additional setup after loading the view.
     }
 
@@ -162,8 +163,7 @@ public class CropEditController: UIViewController {
         
         frame.size.height = view!.frame.height * 0.6
         frame.size.width = view!.frame.width
-        
-        frame.origin.y = self.navigationController!.navigationBar.frame.height
+        //frame.origin.y = self.navigationController!.navigationBar.frame.height
         
         // TO-DO: Make adjustments for toolbar here.
         return frame

@@ -108,9 +108,7 @@ public class CropEditController: UIViewController {
     
     
     public override func viewWillAppear(_ animated: Bool) {
-        print("VIEW WILL APPEAR")
         super.viewWillAppear(animated)
-        
         self.cropView.setBottomImageViewHidden(hidden: true, animated: false)
         if self.cropRatio != nil {
             setAspectRatioPreset(ratio: cropRatio, animated: false)
@@ -118,7 +116,6 @@ public class CropEditController: UIViewController {
     }
     
     public override func viewDidAppear(_ animated: Bool) {
-        print("VIEW DID APPEAR")
         super.viewDidAppear(animated)
         self.cropView.setBottomImageViewHidden(hidden: false, animated: animated)
     }
@@ -167,8 +164,8 @@ public class CropEditController: UIViewController {
         let bounds = view!.bounds
         var frame = CGRect.zero
         
-        frame.size.height = bounds.height
-        frame.size.width = bounds.width
+        frame.size.height = view!.frame.height
+        frame.size.width = view!.frame.width
         
         // TO-DO: Make adjustments for toolbar here.
         return frame

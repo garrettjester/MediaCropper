@@ -522,7 +522,7 @@ public class CropView: UIView {
         var zoomOut = false
         
         if isPortrait {
-            
+            print("IS PORTRAIT")
             // The new width of the cropbox, given the aspect ratio.
             let newWidth = floor(cropBoxFrame.size.height * ratio.width/ratio.height)
             

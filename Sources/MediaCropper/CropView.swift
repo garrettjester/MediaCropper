@@ -374,7 +374,7 @@ public class CropView: UIView {
     
     
     @objc func timerTriggered() {
-        self.setEditing(false, resetCropBox: true, animated: true)
+        self.setEditing(false, resetCropBox: false, animated: true)
         self.cancelResetTimer()
     }
     

@@ -578,7 +578,7 @@ public class CropView: UIView {
                 
                 // Pin the x position to the middle.
                 offset.x += (delta * 0.5)
-                print("CROP BOX FRAME MID Y \(cropBoxFrame.midY)")
+               
                 // Pin the height to the bounds height.
                 cropBoxFrame.size.height = bounds.height
                 zoomOut = true
@@ -586,7 +586,7 @@ public class CropView: UIView {
         }
         
         self.cropBoxLastEditedSize = cropBoxFrame.size
-        
+        print("CROP BOX FRAME MID Y \(cropBoxFrame.midY)")
         // Translate coordinate and size changes in block.
         let translationBlock = { [unowned self] in
             self.scrollView.contentOffset = offset

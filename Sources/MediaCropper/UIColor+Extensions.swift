@@ -13,6 +13,11 @@ public extension UIColor {
         dynamicColor(lightMode: .white, darkMode: .black)
     }
     
+    @nonobjc class var separator: UIColor {
+        return dynamicColor(lightMode: UIColor(red: 0.87, green: 0.87, blue: 0.87, alpha: 1.00),
+                            darkMode: UIColor(red: 0.23, green: 0.23, blue: 0.23, alpha: 1.00))
+    }
+    
     class func dynamicColor(lightMode: UIColor, darkMode: UIColor) -> UIColor {
         if #available(iOS 13, *) {
             return UIColor { (UITraitCollection: UITraitCollection) -> UIColor in

@@ -4,4 +4,10 @@ A Swift package for cropping image and video assets.
 
 ## Features
 - **Automatic Aspect Ratio Detection**  
-  The MediaCropper will select the best aspect ratio (portrait, square, or landscape) to fit your asset.
+  MediaCropper will select the best aspect ratio (portrait, square, or landscape) to fit your asset.
+  
+- **Dark Mode Support**  
+  MediaCropper is built with dynamic colors to support light and dark mode.
+  
+- **Asset Enhancement & Filtering**
+  

@@ -161,7 +161,7 @@ public class CropEditController: UIViewController {
         let view = self.parent == nil ? self.view : self.parent!.view
         var frame = CGRect.zero
         
-        frame.size.height = view!.frame.height * 0.6
+        frame.size.height = (view!.frame.width * 5) / 4
         frame.size.width = view!.frame.width
         //frame.origin.y = self.navigationController!.navigationBar.frame.height
         

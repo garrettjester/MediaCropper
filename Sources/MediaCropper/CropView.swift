@@ -184,6 +184,7 @@ public class CropView: UIView {
     ///--------------
     public func performInitialSetup() {
         if self.initialSetupPerformed { return }
+        print("INITIAL SET UP PERFORMED")
         self.initialSetupPerformed = true
         layoutInitialImage()
         

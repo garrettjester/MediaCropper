@@ -163,6 +163,8 @@ public class CropEditController: UIViewController {
         frame.size.height = view!.frame.height * 0.6
         frame.size.width = view!.frame.width
         
+        frame.origin.y = self.navigationController!.navigationBar.frame.height
+        
         // TO-DO: Make adjustments for toolbar here.
         return frame
     }

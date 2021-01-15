@@ -136,7 +136,7 @@ public class CropView: UIView {
     ///-----------------------
     private func configure() {
         self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        self.backgroundColor = .white
+        self.backgroundColor = self.traitCollection.userInterfaceStyle == .dark ? .black : .white
         self.restoreImageCropFrame = .zero
         
         self.scrollView = MediaScrollView(frame: self.bounds)
@@ -219,7 +219,6 @@ public class CropView: UIView {
     /// LAYOUT INITIAL IMAGE
     ///---------------------
     private func layoutInitialImage() {
-        print("LAYING OUT INITIAL IMAGE")
         let imageSize = self.image.size
         self.scrollView.contentSize = self.image.size
         let bounds = self.contentBounds

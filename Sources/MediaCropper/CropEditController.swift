@@ -164,7 +164,7 @@ public class CropEditController: UIViewController {
         let bounds = view!.bounds
         var frame = CGRect.zero
         
-        frame.size.height = view!.frame.height
+        frame.size.height = view!.frame.height - 85
         frame.size.width = view!.frame.width
         
         // TO-DO: Make adjustments for toolbar here.

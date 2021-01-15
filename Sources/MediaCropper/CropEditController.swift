@@ -175,6 +175,7 @@ public class CropEditController: UIViewController {
     private func addToolbar() {
         let separator = UIView()
         separator.backgroundColor = .gray
+        separator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(separator)
         separator.topAnchor.constraint(equalTo: cropView.bottomAnchor).isActive = true
         separator.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true

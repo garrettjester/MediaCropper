@@ -500,7 +500,7 @@ public class CropView: UIView {
     /// Sets a new aspect ratio for the CropView and
     /// optionally animates the change.
     public func setAspectRatio(ratio: CGSize, animated: Bool = false) {
-        
+        print("CALLING SET ASPECT RATIO")
         self.aspectRatio = ratio
         if !self.initialSetupPerformed { return }
         

@@ -157,7 +157,8 @@ public class CropView: UIView {
         
         self.overlay = UIView(frame: self.bounds)
         self.overlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.overlay.backgroundColor = self.backgroundColor?.withAlphaComponent(0.35)
+        self.overlay.backgroundColor = self.backgroundColor
+        self.overlay.alpha = 1.0
         self.overlay.isHidden = false
         self.overlay.isUserInteractionEnabled = false
         self.addSubview(self.overlay)
@@ -402,7 +403,7 @@ public class CropView: UIView {
     /// TOGGLE TRANSLUCENCY
     ///--------------------
     private func toggleTranslucencyViewVisible(_ visible: Bool) {
-        //self.blurView.alpha = visible ? 1.0 : 0.0
+        self.overlay.alpha = visible ? 1.0 : 0.35
     }
     
     
@@ -796,7 +797,6 @@ extension CropView: UIScrollViewDelegate, UIGestureRecognizerDelegate {
     
     
     public func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        print("SCROLL VIEW DID ZOOM")
         if scrollView.isTracking {
             self.cropBoxLastEditedZoomScale = scrollView.zoomScale
             self.cropBoxLastEditedMinZoomScale = scrollView.minimumZoomScale

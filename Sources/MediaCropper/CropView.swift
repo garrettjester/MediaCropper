@@ -50,8 +50,7 @@ public class CropView: UIView {
         get {return self._imageCropFrame}
         set {setImageCropFrame(imageCropFrame: newValue)}
     }
-    
-    private var cropBoxLastEditedSize: CGSize!
+
     
     private var cropBoxLastEditedZoomScale: CGFloat = 0.0
     
@@ -130,7 +129,7 @@ public class CropView: UIView {
     ///-----------------------
     private func configure() {
         self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        self.backgroundColor = .purple
+        self.backgroundColor = .background
         self.restoreImageCropFrame = .zero
         self.scrollView = MediaScrollView(frame: self.bounds)
         self.scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -583,23 +582,7 @@ public class CropView: UIView {
             }
         }
         
-       
-        
-        var dummyCropBox: UIView?
-        if dummyCropBox == nil {
-            dummyCropBox = UIView()
-            dummyCropBox?.backgroundColor = .green
-            dummyCropBox?.alpha = 0.2
-            self.addSubview(dummyCropBox!)
-        }
-        
-        dummyCropBox?.frame = cropBoxFrame
-        
-        
-        
-        
-        
-        self.cropBoxLastEditedSize = cropBoxFrame.size
+    
         // Translate coordinate and size changes in block.
         let translationBlock = { [unowned self] in
             self.scrollView.contentOffset = offset

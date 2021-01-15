@@ -583,12 +583,13 @@ public class CropView: UIView {
             }
         }
         
-        cropBoxFrame.origin.y = self.frame.midY - (cropBoxFrame.height * 0.5)
+       
         
         var dummyCropBox: UIView?
         if dummyCropBox == nil {
             dummyCropBox = UIView()
             dummyCropBox?.backgroundColor = .green
+            dummyCropBox?.alpha = 0.2
             self.addSubview(dummyCropBox!)
         }
         

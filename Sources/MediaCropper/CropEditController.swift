@@ -98,7 +98,7 @@ public class CropEditController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .background
-        self.cropView.frame = frameForCropView()
+        self.cropView.frame = frameForCropViewWithVerticalLayout()
         self.addToolbar()
         imageView.image = self.image
         self.title = "Edit"
@@ -130,13 +130,12 @@ public class CropEditController: UIViewController {
     
     func adjustCropViewInsets() {
         self.cropView.cropRegionInsets = UIEdgeInsets(top: safeInsets.top, left: 0, bottom: 0, right: 0)
-        self.cropView.cropRegionInsets = UIEdgeInsets(top: self.statusBarHeight, left: 0, bottom: safeInsets.bottom, right: 0)
         return
     }
     
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.cropView.frame = self.frameForCropView()
+        self.cropView.frame = self.frameForCropViewWithVerticalLayout()
         self.adjustCropViewInsets()
         self.cropView.centerCropContent(animated: false)
         

@@ -514,9 +514,9 @@ public class CropView: UIView {
         var isPortrait = false
         
         if ratio.width == 1 && ratio.height == 1 {
-            isPortrait = self.image.size.width > self.image.size.height
+            isPortrait = self.image.size.width < self.image.size.height
         } else {
-            isPortrait = ratio.width < aspectRatio!.height
+            isPortrait = ratio.width < ratio.height
         }
         
         var zoomOut = false

@@ -63,7 +63,7 @@ public class CropView: UIView {
     private var aspectRatioLocked: Bool!
     
     // Padding of the crop rectangle.
-    public var cropViewPadding: CGFloat = 14.0
+    public var cropViewPadding: CGFloat = 0.0
     
     // The largest factor by which the user can scale the image by pinching.
     public var maximumZoomScale: CGFloat = 12.0

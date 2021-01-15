@@ -503,7 +503,8 @@ public class CropView: UIView {
         print("CALLING SET ASPECT RATIO")
         self.aspectRatio = ratio
         if !self.initialSetupPerformed { return }
-        
+        print("RATIO \(ratio)")
+        print("INITIAL SET UP WAS PERFORMED")
         if ratio.width < CGFloat.ulpOfOne && ratio.height < CGFloat.ulpOfOne {
             self.aspectRatio = CGSize(width: self.imageSize.width, height: self.imageSize.height)
         }
@@ -514,11 +515,11 @@ public class CropView: UIView {
         var isPortrait = false
         
         if ratio.width == 1 && ratio.height == 1 {
-            isPortrait = self.image.size.width < self.image.size.height
+            isPortrait = self.imageSize.width < self.imageSize.height
         } else {
             isPortrait = ratio.width < ratio.height
         }
-        
+        print("IS PORTRAIT \(isPortrait)")
         var zoomOut = false
         
         if isPortrait {

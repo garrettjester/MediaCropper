@@ -171,7 +171,7 @@ public class CropEditController: UIViewController {
         let insets = self.safeInsets
         let bounds = view?.bounds
         
-        frame.size = CGSize(width: bounds!.width, height: bounds!.height)
+        frame.size = CGSize(width: bounds!.width, height: (bounds!.width * 5)/4)
         frame.origin.y = insets.top
         return frame
         

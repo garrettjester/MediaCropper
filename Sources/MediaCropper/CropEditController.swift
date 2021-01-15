@@ -161,18 +161,25 @@ public class CropEditController: UIViewController {
     }
     
     
-    private func frameForCropView() -> CGRect {
+    
+    
+    
+    private func frameForCropViewWithVerticalLayout() -> CGRect {
         
         let view = self.parent == nil ? self.view : self.parent!.view
         var frame = CGRect.zero
         
-        frame.size.height = (view!.frame.width * 5) / 4
-        frame.size.width = view!.frame.width
-        frame.origin.y = self.navigationController!.navigationBar.frame.height
+        let insets = self.safeInsets
+        let bounds = view?.bounds
         
-        // TO-DO: Make adjustments for toolbar here.
+        frame.size = CGSize(width: bounds!.width, height: bounds!.height)
+        frame.origin.y = insets.top
         return frame
+        
+        
     }
+    
+
     
     
     

@@ -143,6 +143,9 @@ public class CropEditController: UIViewController {
             self.cropView.performInitialSetup()
             self.firstTime = false
         }
+        
+        
+        
     
         //UIView.performWithoutAnimation {
             // ANY TOOL BAR ADDITIONS

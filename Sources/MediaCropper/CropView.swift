@@ -250,6 +250,9 @@ public class CropView: UIView {
             self.scrollView.contentOffset = offset
         }
         
+        print("CROP BOX FRAME midY = \(frame.midY)")
+        print("CROPVIEW FRAME midY \(self.frame.midY)")
+        
         // Set resetable values.
         self.originalCropBoxSize = self.cropBoxFrame.size
         self.originalContentOffset = self.scrollView.contentOffset

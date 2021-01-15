@@ -130,7 +130,7 @@ public class CropView: UIView {
     ///-----------------------
     private func configure() {
         self.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        self.backgroundColor = .background
+        self.backgroundColor = .purple
         self.restoreImageCropFrame = .zero
         self.scrollView = MediaScrollView(frame: self.bounds)
         self.scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

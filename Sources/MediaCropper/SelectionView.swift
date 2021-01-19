@@ -16,7 +16,7 @@ class SelectionView: UIView {
     var label: UILabel?
     var selectionIndicator: SelectionIndicator?
     
-    init() {
+    override init(frame: CGRect) {
         super.init(frame: CGRect.zero)
         label = UILabel()
         selectionIndicator = SelectionIndicator()
@@ -35,6 +35,7 @@ class SelectionView: UIView {
         label?.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         label?.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         label?.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        label?.widthAnchor.constraint(greaterThanOrEqualToConstant: 30).isActive = true
         
         selectionIndicator?.translatesAutoresizingMaskIntoConstraints = false
         selectionIndicator?.leftAnchor.constraint(equalTo: label!.rightAnchor, constant: 10).isActive = true

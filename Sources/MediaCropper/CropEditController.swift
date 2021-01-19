@@ -88,8 +88,7 @@ public class CropEditController: UIViewController {
         return iv
     }()
     
-    lazy var selectionView = SelectionView()
-    
+    lazy var selectionView = SelectionView(frame: CGRect(x: 0, y: 0, width: 180, height: 50))
     
     
     public init(image: UIImage) {
@@ -104,8 +103,6 @@ public class CropEditController: UIViewController {
         self.addToolbar()
         imageView.image = self.image
         self.title = "Edit"
-        selectionView.translatesAutoresizingMaskIntoConstraints = false
-        selectionView.frame = CGRect(x: 0, y: 0, width: 200, height: 70)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: selectionView)
         print("Frame of Right Nav Item \(selectionView.frame)")
         

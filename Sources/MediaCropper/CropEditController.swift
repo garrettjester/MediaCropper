@@ -104,6 +104,8 @@ public class CropEditController: UIViewController {
         self.addToolbar()
         imageView.image = self.image
         self.title = "Edit"
+        selectionView.translatesAutoresizingMaskIntoConstraints = false
+        selectionView.frame = CGRect(x: 0, y: 0, width: 200, height: 70)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: selectionView)
         // Do any additional setup after loading the view.
     }

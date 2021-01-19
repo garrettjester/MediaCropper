@@ -7,7 +7,7 @@
 
 import UIKit
 
-typealias NumberedSelection = (Bool, Int)
+public typealias NumberedSelection = (Bool, Int)
 
 
 class SelectionView: UIView {

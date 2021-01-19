@@ -91,6 +91,7 @@ public class CropEditController: UIViewController {
     lazy var button: UIButton = {
         let bttn = UIButton()
         bttn.setTitle("Select", for: .normal)
+        bttn.backgroundColor = .red
         bttn.titleLabel?.textColor = .grayText
         return bttn
     }()

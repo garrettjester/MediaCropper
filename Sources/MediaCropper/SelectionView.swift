@@ -41,6 +41,7 @@ class SelectionView: UIView {
         selectionIndicator?.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         selectionIndicator?.widthAnchor.constraint(equalToConstant: 26).isActive = true
         selectionIndicator?.heightAnchor.constraint(equalToConstant: 26).isActive = true
+        self.backgroundColor = .red
     }
     
     

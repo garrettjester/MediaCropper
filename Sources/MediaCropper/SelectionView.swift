@@ -50,7 +50,6 @@ class SelectionView: UIView {
     public func update(selection: NumberedSelection) {
         self.isSelected = selection.0
         self.position = selection.1
-        
         self.selectionIndicator?.backgroundColor = selection.0 ? .selectionBlue : UIColor.black.withAlphaComponent(0.3)
         self.selectionIndicator?.positionLabel?.text = String(selection.1)
         self.selectionIndicator?.positionLabel?.isHidden = !selection.0

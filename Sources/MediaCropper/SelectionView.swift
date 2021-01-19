@@ -28,6 +28,9 @@ class SelectionView: UIView {
         label?.text = "Select"
         label?.textColor = .grayText
         
+        self.addSubview(label!)
+        self.addSubview(selectionIndicator!)
+        
         label?.translatesAutoresizingMaskIntoConstraints = false
         label?.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         label?.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true

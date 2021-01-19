@@ -107,6 +107,8 @@ public class CropEditController: UIViewController {
         selectionView.translatesAutoresizingMaskIntoConstraints = false
         selectionView.frame = CGRect(x: 0, y: 0, width: 200, height: 70)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: selectionView)
+        print("Frame of Right Nav Item \(selectionView.frame)")
+        
         // Do any additional setup after loading the view.
     }
 

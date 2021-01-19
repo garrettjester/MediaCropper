@@ -88,6 +88,9 @@ public class CropEditController: UIViewController {
         return iv
     }()
     
+    lazy var selectionView = SelectionView()
+    
+    
     
     public init(image: UIImage) {
         super.init(nibName: nil, bundle: nil)
@@ -101,7 +104,7 @@ public class CropEditController: UIViewController {
         self.addToolbar()
         imageView.image = self.image
         self.title = "Edit"
-        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: selectionView)
         // Do any additional setup after loading the view.
     }
 

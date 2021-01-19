@@ -7,9 +7,10 @@
 
 import UIKit
 
+typealias NumberedSelection = (Bool, Int)
+
 
 class SelectionView: UIView {
-    
     var isSelected: Bool? = false
     var position: Int?
     var label: UILabel?
@@ -18,6 +19,7 @@ class SelectionView: UIView {
     init() {
         super.init(frame: CGRect.zero)
         label = UILabel()
+        selectionIndicator = SelectionIndicator()
         layout()
     }
     
@@ -25,15 +27,27 @@ class SelectionView: UIView {
         label?.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
         label?.text = "Select"
         label?.textColor = .grayText
-        label?.translatesAutoresizingMaskIntoConstraints = false
         
+        label?.translatesAutoresizingMaskIntoConstraints = false
         label?.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         label?.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         label?.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         
+        selectionIndicator?.translatesAutoresizingMaskIntoConstraints = false
+        selectionIndicator?.leftAnchor.constraint(equalTo: label!.rightAnchor, constant: 10).isActive = true
+        selectionIndicator?.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        selectionIndicator?.widthAnchor.constraint(equalToConstant: 26).isActive = true
+        selectionIndicator?.heightAnchor.constraint(equalToConstant: 26).isActive = true
+    }
+    
+    
+    public func update(selection: NumberedSelection) {
+        self.isSelected = selection.0
+        self.position = selection.1
         
-        
-        
+        self.selectionIndicator?.backgroundColor = selection.0 ? .selectionBlue : UIColor.black.withAlphaComponent(0.3)
+        self.selectionIndicator?.positionLabel?.text = String(selection.1)
+        self.selectionIndicator?.positionLabel?.isHidden = !selection.0
     }
     
     required init?(coder: NSCoder) {
@@ -74,6 +88,7 @@ class SelectionIndicator: UIView {
         positionLabel?.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8).isActive = true
         positionLabel?.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.8).isActive = true
     }
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()

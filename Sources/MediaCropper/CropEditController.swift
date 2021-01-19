@@ -77,7 +77,6 @@ public class CropEditController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.image = image
         self.cropRatio = cropRatio
-        
         self.modalTransitionStyle = .coverVertical
         self.modalPresentationStyle = .fullScreen
         
@@ -102,6 +101,7 @@ public class CropEditController: UIViewController {
         self.addToolbar()
         imageView.image = self.image
         self.title = "Edit"
+        
         // Do any additional setup after loading the view.
     }
 

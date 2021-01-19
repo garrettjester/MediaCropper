@@ -13,6 +13,11 @@ public extension UIColor {
         dynamicColor(lightMode: .white, darkMode: .black)
     }
     
+    @nonobjc class var grayText: UIColor {
+        dynamicColor(lightMode: UIColor(red:0.71, green:0.71, blue:0.71, alpha:1.0),
+                     darkMode: UIColor(red:0.71, green:0.71, blue:0.71, alpha:1.0))
+    }
+    
     @nonobjc class var separator: UIColor {
         return dynamicColor(lightMode: UIColor(red: 0.87, green: 0.87, blue: 0.87, alpha: 1.00),
                             darkMode: UIColor(red: 0.23, green: 0.23, blue: 0.23, alpha: 1.00))

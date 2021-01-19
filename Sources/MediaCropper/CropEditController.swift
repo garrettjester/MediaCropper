@@ -90,6 +90,7 @@ public class CropEditController: UIViewController {
     
     lazy var button: UIButton = {
         let bttn = UIButton()
+        bttn.frame = CGRect(x: 0, y: 0, width: 230, height: 45)
         bttn.setTitle("Select", for: .normal)
         return bttn
     }()

@@ -27,6 +27,9 @@ public class CropEditController: UIViewController {
     /// Views
     ///--------------
     
+    
+    public var selection: NumberedSelection?
+    
     // Lazy load the crop view (to prevent accessing it
     // before presentation).
     lazy var cropView: CropView = {
@@ -91,8 +94,9 @@ public class CropEditController: UIViewController {
     lazy var button: UIButton = {
         let bttn = UIButton()
         bttn.setTitle("Select", for: .normal)
-        bttn.setTitleColor(.grayText, for: .normal)
-        bttn.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        bttn.setTitleColor(.selectionBlue, for: .normal)
+        bttn.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        bttn.addTarget(self, action: #selector(selectionTapped), for: .touchUpInside)
         return bttn
     }()
     
@@ -153,13 +157,6 @@ public class CropEditController: UIViewController {
             self.cropView.performInitialSetup()
             self.firstTime = false
         }
-        
-        
-        
-    
-        //UIView.performWithoutAnimation {
-            // ANY TOOL BAR ADDITIONS
-        //}
     }
     
     
@@ -169,9 +166,7 @@ public class CropEditController: UIViewController {
         self.cropView.setAspectRatio(ratio: ratio.size, animated: animated)
     }
     
-    
-    
-    
+
     
     private func frameForCropViewWithVerticalLayout() -> CGRect {
         
@@ -184,12 +179,7 @@ public class CropEditController: UIViewController {
         frame.size = CGSize(width: bounds!.width, height: (bounds!.width * 5)/4)
         frame.origin.y = insets.top
         return frame
-        
-        
     }
-    
-
-    
     
     
     private func addToolbar() {
@@ -204,6 +194,17 @@ public class CropEditController: UIViewController {
         return
     }
     
+    
+    @objc func selectionTapped() {
+        
+        self.button.setTitle(self.selection?.0 ?? false ? "Deselect" : "Select", for: .normal)
+        self.button.setTitleColor(self.selection?.0 ?? false ? .grayText : .selectionBlue, for: .normal)
+        
+            //if self.selection {
+            
+        //}
+            
+    }
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
 }
